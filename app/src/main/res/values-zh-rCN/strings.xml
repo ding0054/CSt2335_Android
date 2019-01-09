@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">安卓实验室</string>
+    <string name="hello_message">你好！</string>
+    <string name="ButtonText">我是摁钮</string>
+</resources>
