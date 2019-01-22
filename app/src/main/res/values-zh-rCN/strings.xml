@@ -6,4 +6,15 @@
     <string name="Check_box">从这退出!</string>
     <string name="Switch">切换 开 / 关</string>
     <string name="EditText">输入你的答案</string>
+    <string name="LoginText">输入你的邮箱：</string>
+    <string name="Email">在这里输入</string>
+    <string name="password">输入密码:</string>
+    <string name="EnterPassword"></string>
+    <string name="Profile">你的文档</string>
+    <string name="name">你的名字:</string>
+    <string name="ProfileEmail">输入你的邮箱</string>
+    <string name="ProfileName">输入你的名字</string>
+    <string name="YourEmail">你的邮箱:</string>
+    <string name="Picture">你的照片：</string>
+    <string name="ButtonPicture">点上面的按钮照相</string>
 </resources>
