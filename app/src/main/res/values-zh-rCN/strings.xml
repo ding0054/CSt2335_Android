@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">安卓实验室</string>
-    <string name="hello_message">你好！</string>
+    <string name="hello_message">这是我的窗口</string>
     <string name="ButtonText">我是摁钮</string>
+    <string name="Check_box">从这退出!</string>
+    <string name="Switch">切换 开 / 关</string>
+    <string name="EditText">输入你的答案</string>
 </resources>

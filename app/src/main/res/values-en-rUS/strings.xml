@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Android Labs</string>
-    <string name="hello_message">Hello World!</string>
+    <string name="hello_message">Here are my widgets:</string>
     <string name="ButtonText">I\'m a button</string>
+    <string name="Check_box">Check this out!</string>
+    <string name="Switch">Switch on / off</string>
+    <string name="EditText">Type your answer here</string>
 </resources>
