@@ -5,4 +5,15 @@
     <string name="Check_box">Check this out!</string>
     <string name="Switch">Switch on / off</string>
     <string name="EditText">Type your answer here</string>
+    <string name="LoginText">Enter your email address：</string>
+    <string name="Email">Type email here</string>
+    <string name="password">Type your password:</string>
+    <string name="EnterPassword"></string>
+    <string name="Profile">Your profile</string>
+    <string name="name">Your name:</string>
+    <string name="YourEmail">Your email:</string>
+    <string name="ProfileEmail">Enter your email</string>
+    <string name="ProfileName">Enter your name</string>
+    <string name="Picture">Your picture：</string>
+    <string name="ButtonPicture">Click the button above to take a picture</string>
 </resources>
