@@ -17,5 +17,6 @@
     <string name="Picture">Your picture：</string>
     <string name="ButtonPicture">Click the button above to take a picture</string>
     <string name="LoginButton">Long in</string>
+    <string name="takePhoto">take picture</string>
 
 </resources>

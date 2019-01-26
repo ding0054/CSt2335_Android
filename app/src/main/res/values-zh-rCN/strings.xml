@@ -18,4 +18,5 @@
     <string name="Picture">你的照片：</string>
     <string name="ButtonPicture">点上面的按钮照相</string>
     <string name="LoginButton">登录</string>
+    <string name="takePhoto">照相</string>
 </resources>
