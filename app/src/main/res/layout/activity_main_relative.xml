@@ -6,14 +6,14 @@
     android:layout_height="wrap_content">
 
     <View
-        android:id="@+id/strut"
+        android:id="@+id/strut_relative"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/text_relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -21,49 +21,49 @@
         android:text="@string/hello_message" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text"
-        android:layout_alignRight="@+id/strut"
+        android:layout_below="@id/text_relative"
+        android:layout_alignRight="@+id/strut_relative"
         android:layout_alignParentLeft="true"
         android:text="@string/ButtonText" />
 
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButton_relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text"
-        android:layout_alignLeft="@+id/strut"
+        android:layout_below="@id/text_relative"
+        android:layout_alignLeft="@+id/strut_relative"
         android:layout_alignParentRight="true"
         app:srcCompat="@drawable/flag" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/checkBox_relative"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/strut"
-        android:layout_below="@id/button"
-        android:layout_alignTop="@id/switch1"
-        android:layout_above="@id/edit_text"
+        android:layout_alignRight="@+id/strut_relative"
+        android:layout_below="@id/button_relative"
+        android:layout_alignTop="@id/switch_relative"
+        android:layout_above="@id/edit_text_relative"
         android:text="@string/Check_box" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/switch_relative"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageButton"
-        android:layout_alignLeft="@+id/strut"
+        android:layout_below="@id/imageButton_relative"
+        android:layout_alignLeft="@+id/strut_relative"
         android:layout_alignParentRight="true"
         android:text="@string/Switch" />
 
     <EditText
-        android:id="@+id/edit_text"
+        android:id="@+id/edit_text_relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/switch1"
+        android:layout_below="@id/switch_relative"
         android:hint="@string/EditText"
         android:inputType="textPersonName"/>
 
