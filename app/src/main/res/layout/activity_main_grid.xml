@@ -19,7 +19,7 @@
         android:text="@string/hello_message" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_grid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="1"
@@ -29,7 +29,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButton_grid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="1"
@@ -38,7 +38,7 @@
         app:srcCompat="@drawable/flag" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/checkBox_grid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="2"
@@ -48,7 +48,7 @@
         android:text="@string/Check_box" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/switch_grid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="2"

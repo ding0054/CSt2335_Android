@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/textView_email_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/LoginText"
@@ -22,6 +22,7 @@
         tools:layout_editor_absoluteY="7dp" />
 
         <EditText
+            android:id="@+id/editText_email_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30dp"
@@ -29,7 +30,7 @@
             android:inputType="textEmailAddress"/>
 
         <TextView
-            android:id="@+id/password"
+            android:id="@+id/textView_password_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/password"
@@ -38,6 +39,7 @@
             tools:layout_editor_absoluteY="131dp" />
 
         <EditText
+            android:id="@+id/editText_password_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30dp"
@@ -45,9 +47,10 @@
             android:inputType="textPassword"/>
 
         <Button
-            android:id="@+id/loginButton"
+            android:id="@+id/loginButton_login"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/LoginButton"/>
 
     </LinearLayout>
 
