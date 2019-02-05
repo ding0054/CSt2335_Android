@@ -7,12 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.graphics.Bitmap;
 import android.widget.EditText;
 import android.provider.MediaStore;
+import android.widget.ImageButton;
 
-import static com.example.xiaoy.androidlabs.R.id.clickButton_profile;
 
 public class ProfileActivity extends AppCompatActivity {
     protected static final String ACTIVITY_NAME = "ProfileActivity";
@@ -26,7 +26,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        iButton = (ImageButton) findViewById(R.id.clickButton_profile);
+        iButton = (ImageButton) findViewById(R.id.image_clickButton_profile);
         iButton.setOnClickListener(new View.OnClickListener() {
             final int REQUEST_IMAGE_CAPTURE = 1;
             @Override

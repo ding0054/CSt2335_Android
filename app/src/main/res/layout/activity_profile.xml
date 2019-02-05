@@ -54,19 +54,20 @@
             android:textSize="15dp"
             android:text="@string/Picture"/>
 
+
+        <ImageButton
+            android:id="@+id/image_clickButton_profile"
+            android:layout_width="@android:dimen/app_icon_size"
+            android:layout_height="@android:dimen/app_icon_size"
+            android:text="@string/takePhoto" />
+
+
         <TextView
             android:id="@+id/textView_clickButton_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:text="@string/ButtonPicture"/>
-
-        <Button
-            android:id="@+id/image_clickButton_profile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/takePhoto"/>
-
 
     </LinearLayout>
 
