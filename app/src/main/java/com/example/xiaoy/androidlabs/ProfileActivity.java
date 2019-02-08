@@ -26,13 +26,23 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        Intent intent = getIntent();
+
+        String emailTyped = intent.getStringExtra("DefaultEmail");
+
+        EditText editEmail = findViewById(R.id.editText_email_profile);
+        editEmail.setText(emailTyped);
+
         iButton = (ImageButton) findViewById(R.id.image_clickButton_profile);
+
         iButton.setOnClickListener(new View.OnClickListener() {
             final int REQUEST_IMAGE_CAPTURE = 1;
             @Override
             public void onClick(View view) {
+                dispatchTakePictureIntent();
             }
-        private void dispatchTakePictureIntent(){
+
+            private void dispatchTakePictureIntent(){
             Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             if (takePictureIntent.resolveActivity(getPackageManager()) != null){
                 startActivityForResult(takePictureIntent,REQUEST_IMAGE_CAPTURE);

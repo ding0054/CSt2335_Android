@@ -19,18 +19,22 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        SharedPreferences sharedPreferences = getSharedPreferences(
+                "LoginFile",Context.MODE_PRIVATE);
+
+        String email = sharedPreferences.getString("DefaultEmail", "");
+        final EditText editMail = (EditText)findViewById(R.id.editText_email_login);
+        editMail.setText(email);
+
+
         Button loginButton = (Button) findViewById(R.id.loginButton_login);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences sharedPreferences = getSharedPreferences(
-                        "LoginFile",Context.MODE_PRIVATE);
 
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                EditText loginName= (EditText)findViewById(R.id.editText_email_login);
-                editor.putString("DefaultEmail",loginName.getText().toString());
-                editor.commit();
                 Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                String email = editMail.getText().toString();
+                intent.putExtra("DefaultEmail", email);
                 startActivity(intent);
             }
         });
