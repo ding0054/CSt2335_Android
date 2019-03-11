@@ -19,4 +19,8 @@
     <string name="ButtonPicture">点上面的按钮照相</string>
     <string name="LoginButton">登录</string>
     <string name="takePhoto">照相</string>
+    <string name="GotoChat">跳转去对话框</string>
+    <string name="ButtonSendText">发送</string>
+    <string name="HintText_chat">输入内容</string>
+    <string name="ButtonText_Receive">接收</string>
 </resources>
