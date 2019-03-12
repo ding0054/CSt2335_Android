@@ -1,184 +1,129 @@
-package com.example.androidlabs;
+package com.example.xiaoy.androidlabs;
 
-import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
+public class ChatRoomActivity extends AppCompatActivity implements View.OnClickListener{
 
+    private EditText editText;
 
-public class ChatWindow extends AppCompatActivity {
-    protected EditText chatEditText;
-    private ArrayList<Message> chatMessage = new ArrayList<>();
-    protected static final String ACTIVITY_NAME = "ChatWindow";
-    protected static final int SEND_MESSAGE = 1;
-    protected static final int RECEIVE_MESSAGE = 2;
-
-    ChatAdapter messageAdapter;
+    private MyListAdapter adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat_window);
+        setContentView(R.layout.activity_chat_room);
 
 
-        ListView listView = (ListView) findViewById(R.id.listView);
-        chatEditText = (EditText) findViewById(R.id.editChat);
+        editText = findViewById(R.id.editTextChatMsg);
+        ListView listview = findViewById(R.id.listConversation);
+        adapter = new MyListAdapter(this, R.id.listConversation);
+        listview.setAdapter(adapter);
 
-        messageAdapter = new ChatAdapter(this);
-        listView.setAdapter(messageAdapter);
+        Button buttonSend = findViewById(R.id.buttonSend);
+        buttonSend.setOnClickListener(this);
 
-        Button btSend = (Button) findViewById(R.id.buttonSend);
-        btSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                chatMessage.add(new Message(chatEditText.getText().toString(),SEND_MESSAGE));
-                messageAdapter.notifyDataSetChanged(); //this restarts the process of getCount()/getView()
-
-                ContentValues newValues = new ContentValues();
-
-                chatEditText.setText("");
-
-            }
-        });
-
-        Button btReceive = (Button) findViewById(R.id.buttonReceive);
-        btReceive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                chatMessage.add(new Message(chatEditText.getText().toString(), RECEIVE_MESSAGE));
-                messageAdapter.notifyDataSetChanged(); //this restarts the process of getCount()/getView()
-
-                ContentValues newValues = new ContentValues();
-
-                chatEditText.setText("");
-
-            }
-        });
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
-                Context context = view.getContext();
-
-                TextView textViewItem = ((TextView) view.findViewById(R.id.message_text));
-
-                // get the clicked item name
-                String listItemText = textViewItem.getText().toString();
-
-                // just toast it
-                Toast.makeText(context, "Item: " + listItemText , Toast.LENGTH_SHORT).show();
-
-                Log.d("chatListView", "onItemClick: " + i + " " + l);
-            }
-        });
-
-
+        Button buttonReceived = findViewById(R.id.buttonReceive);
+        buttonReceived.setOnClickListener(this);
     }
 
     @Override
-    protected void onDestroy(){
-        super.onDestroy();
+    public void onClick(View v) {
+        String input = editText.getText().toString();
 
-        Log.i(ACTIVITY_NAME,"In onDestroy()");
-    }
+        if (input.length() == 0)
+            return;
 
-    //inner class ChatAdapter
-    public class ChatAdapter extends ArrayAdapter<Message> {
-
-        public ChatAdapter(Context ctx) {
-
-            super(ctx, 0);
+        switch (v.getId()) {
+            case R.id.buttonSend:
+                adapter.add(new Message(input, MessageType.SENT));
+                break;
+            case R.id.buttonReceive:
+                adapter.add(new Message(input, MessageType.RECEIVED));
+                break;
+            default:
+                break;
         }
-
-        public int getCount() {
-
-            return chatMessage.size();
-        }
-
-        public long getItemId(int position) {
-            return position;
-
-        }
-
-        public Message getItem(int position) {
-
-            return chatMessage.get(position);
-        }
-
-        public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = ChatWindow.this.getLayoutInflater();
-            View result = null;
-
-            if (getItem(position).getMessage_type() == RECEIVE_MESSAGE) {
-                result = inflater.inflate(R.layout.chat_row_incoming, null);
-            } else {
-                result = inflater.inflate(R.layout.chat_row_outgoing, null);
-            }
-
-            TextView message = (TextView) result.findViewById(R.id.message_text);
-
-            message.setText(getItem(position).getMessage());
-
-            return result;
-        }
-
-    }
-
-    public void onActivityResult(int requestCode,int resultCode, Intent data) {
-        if ((requestCode == 5)&&(resultCode == Activity.RESULT_OK)){
-            Log.i(ACTIVITY_NAME, "Returned to ChatWindow.onActivityResult");
-        }
-
-
+        adapter.notifyDataSetChanged();
+        editText.setText("");
     }
 
 
-    class Message {
+    /**
+     * MessageType Enum Type
+     */
+    private enum MessageType { SENT, RECEIVED }
+
+    /**
+     * Message representing class
+     */
+    private class Message {
         private String message;
-        private int message_type;
+        private MessageType type;
 
-        public Message(String message){
-            setMessage(message);
-        }
-
-        public Message(String message, int message_type){
-            setMessage(message);
-            setMessage_type(message_type);
-        }
-
-
-        public String getMessage(){
-            return this.message;
-        }
-
-        public void setMessage(String message) {
+        Message(String message, MessageType type) {
             this.message = message;
+            this.type = type;
         }
 
-        public int getMessage_type() {
-            return message_type;
+        String getMessage() {
+            return message;
         }
 
-        public void setMessage_type(int message_type) {
-            this.message_type = message_type;
+        MessageType getType() {
+            return type;
+        }
+
+        @Override
+        public String toString() {
+            return "Message{" +
+                    "message='" + message + '\'' +
+                    ", type=" + type +
+                    '}';
         }
     }
 
+    /**
+     * Customized List Adapter, with built-in container for Message
+     */
+    private class MyListAdapter extends ArrayAdapter<Message> {
+        private LayoutInflater inflater;
+
+
+        MyListAdapter(Context context, int resource) {
+            super(context, resource);
+            this.inflater = LayoutInflater.from(context);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            Message message = getItem(position);
+
+            View view = null;
+            TextView textView = null;
+
+            if (message.getType() == MessageType.SENT) {
+                view = inflater.inflate(R.layout.chat_message_sent, null);
+                textView = view.findViewById(R.id.textViewSent);
+
+            } else if (message.getType() == MessageType.RECEIVED) {
+                view = inflater.inflate(R.layout.chat_message_received, null);
+                textView = view.findViewById(R.id.textViewReceived);
+            }
+            textView.setText(message.getMessage());
+
+            return view;
+        }
+    }
 }

@@ -37,8 +37,11 @@ public class ProfileActivity extends AppCompatActivity {
 
         iButton.setOnClickListener(new View.OnClickListener() {
             final int REQUEST_IMAGE_CAPTURE = 1;
+
+
             @Override
             public void onClick(View view) {
+
                 dispatchTakePictureIntent();
             }
 
@@ -49,6 +52,16 @@ public class ProfileActivity extends AppCompatActivity {
             }
         }
         });
+
+        Button chatBT = (Button)findViewById(R.id.ButtonGoToChat);
+        chatBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentChat = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+                startActivity(intentChat);
+            }
+        });
+        Log.e(ACTIVITY_NAME,"IN onCREATE()");
 
         Log.e(ACTIVITY_NAME,"IN onCREATE()");
     }
