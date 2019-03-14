@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
-    protected static final String ACTIVITY_NAME="LoginActivity";
+    protected static final String ACTIVITY_NAME_login ="LoginActivity";
 
 
     @Override
@@ -38,14 +38,14 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Log.e(ACTIVITY_NAME,"IN onCREATE()");
+        Log.e(ACTIVITY_NAME_login,"IN onCREATE()");
     }
 
 
 
     public void onStart(){
         super.onStart();
-        Log.e(ACTIVITY_NAME,"IN onSTART()");
+        Log.e(ACTIVITY_NAME_login,"IN onSTART()");
     }
 
 
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         int timeRun = sharedPreferences.getInt("TIME_RUN",0);
         EditText loginName = (EditText) findViewById(R.id.editText_email_login);
         loginName.setText(sharedPreferences.getString("DefaultEmail",""));
-        Log.e(ACTIVITY_NAME,"IN onRESUME()");
+        Log.e(ACTIVITY_NAME_login,"IN onRESUME()");
   }
 
 
@@ -68,16 +68,16 @@ public class LoginActivity extends AppCompatActivity {
         EditText loginName = (EditText) findViewById(R.id.editText_email_login);
         editor.putString("DefaultEmail",loginName.getText().toString());
         editor.commit();
-        Log.e(ACTIVITY_NAME,"IN onPAUSE()");
+        Log.e(ACTIVITY_NAME_login,"IN onPAUSE()");
   }
 
   protected  void  onStop(){
         super.onStop();
-        Log.e(ACTIVITY_NAME,"IN onSTOP()");
+        Log.e(ACTIVITY_NAME_login,"IN onSTOP()");
   }
 
   protected  void onDestroy(){
         super.onDestroy();
-        Log.e(ACTIVITY_NAME,"IN onDESTROY()");
+        Log.e(ACTIVITY_NAME_login,"IN onDESTROY()");
   }
 }
