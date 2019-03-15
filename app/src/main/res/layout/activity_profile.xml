@@ -75,6 +75,12 @@
             android:layout_height="wrap_content"
             android:text="@string/GotoChat"/>
 
+        <Button
+            android:id="@+id/btnGotoToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnGotoToolBar" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

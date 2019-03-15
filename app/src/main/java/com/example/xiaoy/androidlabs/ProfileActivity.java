@@ -61,6 +61,16 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(intentChat);
             }
         });
+
+        Button toolBt = (Button) findViewById(R.id.btnGotoToolBar);
+        toolBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this, TestToolbar.class);
+                startActivity(intent);
+            }
+        });
+
         Log.e(ACTIVITY_NAME,"IN onCREATE()");
 
         Log.e(ACTIVITY_NAME,"IN onCREATE()");
