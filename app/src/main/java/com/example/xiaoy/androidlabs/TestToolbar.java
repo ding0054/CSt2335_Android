@@ -1,8 +1,9 @@
 package com.example.xiaoy.androidlabs;
 
 import android.content.DialogInterface;
-import android.support.design.widget.*;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
+//import android.support.v7.app.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,20 +12,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class TestToolbar extends AppCompatActivity {
 
-    private Toolbar tBar;
+    private Toolbar tToolBar;
     private String message;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_toolbar);
-        tBar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(tBar);
+        tToolBar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(tToolBar);
         message = "This is the initial message";
     }
 
@@ -55,14 +55,13 @@ public class TestToolbar extends AppCompatActivity {
             case R.id.menuItem3:
                 //Show the toast immediately:
                 //Toast.makeText(this, "Welcome to Menu Example", Toast.LENGTH_LONG).show();
-                Snackbar sb;
-                sb = Snackbar.make(tBar, "Go Back?", Snackbar.LENGTH_LONG)
+                Snackbar snackbar;
+                snackbar = Snackbar.make(tToolBar, "Go Back?", Snackbar.LENGTH_LONG)
                         .setAction("GoBack", e ->{
                             Log.e("Menu Example", "Clicked Undo");
                             finish();
                         });
-                sb.show();
-
+                snackbar.show();
                 break;
             case R.id.menuItem4:
                 //Show the toast immediately:

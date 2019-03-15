@@ -9,23 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestToolbar"></activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name="com.example.xiaoy.androidlabs.TestToolbar"></activity>
+        <activity android:name="com.example.xiaoy.androidlabs.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".ChatRoomActivity">
+        <activity android:name="com.example.xiaoy.androidlabs.ProfileActivity" />
+        <activity android:name="com.example.xiaoy.androidlabs.ChatRoomActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChatDatabase" />
+        <activity android:name="com.example.xiaoy.androidlabs.ChatDatabase" />
     </application>
 
 </manifest>
