@@ -69,7 +69,14 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        Log.e(ACTIVITY_NAME,"IN onCREATE()");
+        Button weatherBt = findViewById(R.id.buttonGotoWeather);
+        weatherBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this, WeatherForecast.class);
+                startActivity(intent);
+            }
+        });
 
         Log.e(ACTIVITY_NAME,"IN onCREATE()");
     }

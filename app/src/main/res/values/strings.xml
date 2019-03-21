@@ -30,5 +30,6 @@
     <string name="menuName4">About</string>
     <string name="search">Search</string>
     <string name="aButton">Go Back?</string>
+    <string name="buttonGotoWeather">Go To Weather Page</string>
 
 </resources>
