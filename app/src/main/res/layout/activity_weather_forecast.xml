@@ -19,24 +19,36 @@
         android:id="@+id/TextView_current_temp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="17dp"
+        android:textColor="@color/design_default_color_primary_dark"
         android:text="Current Temp"/>
 
     <TextView
         android:id="@+id/TextView_MinTemp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="17dp"
+        android:textColor="@color/design_default_color_primary_dark"
         android:text="Min Temp"/>
 
     <TextView
         android:id="@+id/TextView_MaxTemp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="17dp"
+        android:textColor="@color/design_default_color_primary_dark"
         android:text="Max Temp"/>
 
     <TextView
         android:id="@+id/TextView_UV_Rating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="17dp"
+        android:textColor="@color/design_default_color_primary_dark"
         android:text="UV Rating"/>
 
     <ProgressBar
