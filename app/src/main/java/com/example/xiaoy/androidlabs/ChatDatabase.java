@@ -5,8 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class ChatDatabase extends SQLiteOpenHelper{
-
+public class ChatDatabase extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Chats.db";
     public static final String TABLE_NAME = "ChatMessage";
     public static final String KEY_ID = "_id";
@@ -14,7 +13,11 @@ public class ChatDatabase extends SQLiteOpenHelper{
     public static final String KEY_TYPE = "MSGTYPE";
     private static int VERSION_NUM = 3;
     private static final String ACTIVITY_NAME = "ChatDatabase";
-
+    // create table sql
+    // ChatMessage
+    // _id integer
+    // MESSAGE text
+    // TYPE INTEGER
     public static final String CREATE_TABLE_MESSAGE =
             "CREATE TABLE " + TABLE_NAME + " ("
                     + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "

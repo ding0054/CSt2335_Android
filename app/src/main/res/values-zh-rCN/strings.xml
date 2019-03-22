@@ -23,4 +23,17 @@
     <string name="ButtonSendText">发送</string>
     <string name="HintText_chat">输入内容</string>
     <string name="ButtonText_Receive">接收</string>
+    <string name="btnGoToChat">前往聊天室</string>
+    <string name="btnGotoToolBar">前往工具栏</string>
+    <string name="menuName1">选择 1</string>
+    <string name="menuName2">选择 2</string>
+    <string name="menuName3">选择 3</string>
+    <string name="menuName4">相关</string>
+    <string name="search">查找</string>
+    <string name="aButton">退回?</string>
+    <string name="buttonGotoWeather">进入天气页面</string>
+    <string name="TextView_CurrentTemp_Weather">当前气温</string>
+    <string name="TextView_MinTemp_Weather">最低气温</string>
+    <string name="TextView_MaxTemp_Weather">最高气温</string>
+    <string name="TextView_UVrating_Weather">紫外线值</string>
 </resources>
