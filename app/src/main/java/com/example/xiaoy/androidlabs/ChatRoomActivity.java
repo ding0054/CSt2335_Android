@@ -111,7 +111,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
                 Context context = view.getContext();
 
-                TextView textViewItem = ((TextView) view.findViewById(R.id.editTextChatMsg));
+                TextView textViewItem = ((TextView) view.findViewById(R.id.message_text));
 
                 // get the clicked item name
                 String listItemText = textViewItem.getText().toString();
@@ -171,7 +171,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                 result = inflater.inflate(R.layout.chat_message_sent, null);
             }
 
-            TextView message = (TextView) result.findViewById(R.id.editTextChatMsg);
+            TextView message = (TextView) result.findViewById(R.id.message_text);
 
             message.setText(getItem(position).getMessage());
 
@@ -235,62 +235,4 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         messageAdapter.notifyDataSetChanged();
     }
-
-    class Message {
-        private String message;
-        // message type
-        // refactor to boolean
-        private int message_type;
-        // database
-        // id
-        private long id;
-
-        public Message(String message){
-            setMessage(message);
-        }
-
-        public Message(String message, int message_type){
-            setMessage(message);
-            setMessage_type(message_type);
-        }
-
-        public Message(String message, int message_type, long id){
-            setMessage(message);
-            setMessage_type(message_type);
-            setId(id);
-        }
-
-
-        public String getMessage(){
-
-            return this.message;
-        }
-
-        public void setMessage(String message) {
-
-            this.message = message;
-        }
-
-        public int getMessage_type() {
-
-            return message_type;
-        }
-
-        public void setMessage_type(int message_type) {
-
-            this.message_type = message_type;
-        }
-
-        public long getId() {
-            return id;
-        }
-
-        public void setId(long id) {
-            this.id = id;
-        }
-
-
-    }
-
 }
-

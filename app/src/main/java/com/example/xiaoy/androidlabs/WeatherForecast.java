@@ -27,10 +27,10 @@ import java.io.InputStream;
 public class WeatherForecast extends AppCompatActivity {
     public static final String ACTIVITY = "WeatherForecast";
     public static final int PROGRESSSPEED = 10;
-    public static final String VALUE = "Temperature : ";
-    public static final String MIN = "Temperature min: ";
-    public static final String MAX = "Temperature max: ";
-    public static final String UVRATING = "UV rating: ";
+    public static final String VALUE = "Current Temperature  ";
+    public static final String MIN = "Temperature min ";
+    public static final String MAX = "Temperature max ";
+    public static final String UVRATING = "UV rating ";
 
     private ProgressBar progressBar;
     private ImageView weatherImage;

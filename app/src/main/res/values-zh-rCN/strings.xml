@@ -32,4 +32,8 @@
     <string name="search">查找</string>
     <string name="aButton">退回?</string>
     <string name="buttonGotoWeather">进入天气页面</string>
+    <string name="TextView_CurrentTemp_Weather">当前气温</string>
+    <string name="TextView_MinTemp_Weather">最低气温</string>
+    <string name="TextView_MaxTemp_Weather">最高气温</string>
+    <string name="TextView_UVrating_Weather">紫外线值</string>
 </resources>

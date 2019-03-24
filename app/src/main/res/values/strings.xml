@@ -31,5 +31,9 @@
     <string name="search">Search</string>
     <string name="aButton">Go Back?</string>
     <string name="buttonGotoWeather">Go To Weather Page</string>
+    <string name="TextView_CurrentTemp_Weather">Current Tempe</string>
+    <string name="TextView_MinTemp_Weather">Min Tempe</string>
+    <string name="TextView_MaxTemp_Weather">Max Tempe</string>
+    <string name="TextView_UVrating_Weather">UV Rating</string>
 
 </resources>
