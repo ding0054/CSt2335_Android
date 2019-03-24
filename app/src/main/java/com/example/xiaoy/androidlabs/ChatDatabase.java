@@ -11,7 +11,7 @@ public class ChatDatabase extends SQLiteOpenHelper {
     public static final String KEY_ID = "_id";
     public static final String KEY_MESSAGE = "MESSAGE";
     public static final String KEY_TYPE = "MSGTYPE";
-    private static int VERSION_NUM = 3;
+    private static int VERSION_NUM = 4;
     private static final String ACTIVITY_NAME = "ChatDatabase";
     // create table sql
     // ChatMessage
