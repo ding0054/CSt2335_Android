@@ -6,8 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +18,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -34,6 +33,14 @@ public class ChatRoomActivity extends AppCompatActivity {
     protected SQLiteDatabase db;
     Cursor results;
     ChatAdapter messageAdapter;
+
+    //// lab 8
+    public static final String ITEM_SELECTED = "ITEM";
+    public static final String ITEM_TYPE = "TYPE";
+    public static final String ITEM_POSITION = "POSITION";
+    public static final String ITEM_ID = "ID";
+    public static final int EMPTY_ACTIVITY = 345;
+    ////
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +71,10 @@ public class ChatRoomActivity extends AppCompatActivity {
         messageAdapter = new ChatAdapter(this);
         listView.setAdapter(messageAdapter);
 
+        ////lab8
+        boolean isTablet = findViewById(R.id.fragmentLocation) != null; //check if the FrameLayout is loaded
+
+        ////lab8
         Button btSend = (Button) findViewById(R.id.buttonSend);
         btSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +119,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Context context = view.getContext();
 
                 TextView textViewItem = ((TextView) view.findViewById(R.id.message_text));
@@ -117,15 +128,42 @@ public class ChatRoomActivity extends AppCompatActivity {
                 String listItemText = textViewItem.getText().toString();
 
                 // just toast it
-                Toast.makeText(context, "Item: " + listItemText , Toast.LENGTH_SHORT).show();
+                /*Toast.makeText(context, "Item: " + listItemText , Toast.LENGTH_SHORT).show();
                 Log.d("chatListView", "onItemClick: " + i + " " + l);
                 results = db.query(false, chatData.TABLE_NAME,
                         new String[] {chatData.KEY_ID, chatData.KEY_MESSAGE, chatData.KEY_TYPE},
                         chatData.KEY_ID +" not null", null, null, null, null, null, null);
                 //int rows = results.getCount();
                 //results.moveToFirst();
-                printCursor(results);
+                printCursor(results);*/
+                ///lab 8
+                Bundle dataToPass = new Bundle();
+                dataToPass.putString(ITEM_SELECTED, chatMessage.get(position).getMessage());
+                dataToPass.putInt(ITEM_TYPE,chatMessage.get(position).getMessage_type());
+                dataToPass.putInt(ITEM_POSITION, position);
+                dataToPass.putLong(ITEM_ID, chatMessage.get(position).getId());
+
+                if(isTablet)
+                {
+                    DetailFragment dFragment = new DetailFragment(); //add a DetailFragment
+                    dFragment.setArguments( dataToPass ); //pass it a bundle for information
+                    dFragment.setTablet(true);  //tell the fragment if it's running on a tablet or not
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .add(R.id.fragmentLocation, dFragment) //Add the fragment in FrameLayout
+                            .addToBackStack("AnyName") //make the back button undo the transaction
+                            .commit(); //actually load the fragment.
+                }
+                else //isPhone
+                {
+                    Intent nextActivity = new Intent(ChatRoomActivity.this, EmptyActivity.class);
+                    nextActivity.putExtras(dataToPass); //send data to next activity
+                    startActivityForResult(nextActivity, EMPTY_ACTIVITY); //make the transition
+                }
             }
+
+            ///lab 8
+
         });
 
 
@@ -185,6 +223,14 @@ public class ChatRoomActivity extends AppCompatActivity {
             Log.i(ACTIVITY_NAME, "Returned to ChatRoomActivity.onActivityResult");
         }
 
+        if(requestCode == EMPTY_ACTIVITY)
+        {
+            if(resultCode == RESULT_OK) //if you hit the delete button instead of back button
+            {
+                long id = data.getLongExtra(ITEM_ID, 0);
+                deleteListMessage(id);
+            }
+        }
 
     }
 
@@ -235,4 +281,12 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         messageAdapter.notifyDataSetChanged();
     }
+
+//    public void deleteMessageId(int id)
+//    {
+//        Log.i("Delete this message:" , " id="+id);
+//        //source.remove(id);
+//        //theAdapter.notifyDataSetChanged();
+//    }
 }
+

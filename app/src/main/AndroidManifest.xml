@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Message"></activity>
+        <activity android:name=".EmptyActivity"></activity>
+        <activity android:name=".DetailFragment" />
+        <activity android:name=".Message" />
         <activity android:name=".ChatRoomActivity" />
         <activity android:name=".WeatherForecast" />
         <activity android:name=".TestToolbar" />
